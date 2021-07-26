@@ -1,0 +1,74 @@
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header card-header-danger">
+            <h4 class="card-title">Categories Table</h4>
+            
+            <p class="card-category">This table contains all Categories</p>
+          </div>
+          <div class="card-body">
+            <div class="table-responsive">
+              <table class="table">
+                <thead class="text-primary">
+                  <th>ID</th>
+                  <th>Title</th>
+                  <th>Description</th>
+                  
+                </thead>
+                <tbody>
+                  <tr *ngFor='let cat of category;index as i'>
+                    <td>{{i+1}}</td>
+                    <td>{{cat.title}}</td>
+                    <td>{{cat.decs}}</td>
+                  </tr>
+                 <tr>
+                   
+                 </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+</div>
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary bbb mx-5" data-toggle="modal" data-target="#exampleModal">
+  Add New Category
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel" class="btn btn-dark btn-block text-uppercase w-100">Form Add Category</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="col-xl-12 col-lg-12 col-md-12">
+          <div class="form-group mb-3">
+            <label for="name"  >Category Title
+            </label>
+            <input id="name" #title name="name" type="text" class="form-control validate" required />
+          </div>
+          <div class="form-group mb-3">
+            <label for="description">Category Description</label>
+            <textarea #desc class="form-control validate" rows="3" required></textarea>
+          </div>        
+        </div>
+        <div class="col-xl-12 col-lg-12 col-md-12">
+          <button type="button" (click)="addCat(title.value,desc.value)" class="btn btn-primary btn-block text-uppercase w-100">Add Product Now</button>
+        </div>
+
+      </div>
+     
+    </div>
+  </div>
+</div>

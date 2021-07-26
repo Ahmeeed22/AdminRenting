@@ -1,0 +1,40 @@
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header card-header-danger">
+            <h4 class="card-title">User Table</h4>
+            <p class="card-category">This table contains all users</p>
+          </div>
+          <div class="card-body">
+            <div class="table-responsive">
+              <table class="table">
+                <thead class="text-primary">
+                  <th>ID</th>
+                  <th>Name</th>
+                  <th>Email</th>
+                  <th>Phone</th>
+                  <th>Address_street</th>
+                  <th>Address_city</th>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let us of user;index as i">
+                    <td>{{ i+1 }}</td>
+                    <td>{{ us.Name }}</td>
+                    <td>{{ us.Email }}</td>
+                    <td>{{ us.Phone }}</td>
+                    <td>{{ us.Address_street }}</td>
+                    <td>{{ us.Address_city }}</td>
+                    <input type="hidden" #id value="{{ us._id }}" name="" id="">
+                    <td><button class="btn btn-danger" (click)="deleteuser(id.value)">Delete</button></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

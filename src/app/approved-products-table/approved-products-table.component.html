@@ -1,0 +1,50 @@
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header card-header-danger">
+            <h4 class="card-title">Approved Products Table</h4>
+            <p class="card-category">
+              This table contains all approved products
+            </p>
+          </div>
+          <div class="card-body">
+            <div class="table-responsive">
+              <table class="table">
+                <thead class="text-primary">
+                  <th>ID</th>
+                  <th>Title</th>
+                  <th>Description</th>
+                  <th>Status</th>
+                  <th>Price/Day</th>
+                  <th>Actions</th>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let product of productsList; index as i">
+                    <td>{{ i + 1 }}</td>
+                    <td>{{ product.title }}</td>
+                    <td>{{ product.desc.slice(0, 70) }}...</td>
+                    <td>{{ product.status }}</td>
+                    <td>$ {{ product.price_by_day }}</td>
+                    <td>
+                      <a class="btn btn-info p-2">
+                        <i class="bi bi-info"></i>
+                      </a>
+                      <button
+                        class="btn btn-danger p-2"
+                        (click)="onDeleteProduct(product._id)"
+                      >
+                        <i class="bi bi-trash"></i>
+                      </button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
